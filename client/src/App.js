@@ -1,9 +1,11 @@
 import './App.css';
+import { Countries } from './components/Countries';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <Countries />
     </div>
   );
 }
