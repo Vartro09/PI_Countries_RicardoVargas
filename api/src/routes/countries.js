@@ -52,7 +52,7 @@ router.get( '/', async (req, res, next) => {
                 .then( (countries) => {
                     res.send(countries);
                 }) 
-    } catch (error) {
+    } catch (error) { 
         next(error);
     }
 });
