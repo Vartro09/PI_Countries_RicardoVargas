@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchCountries } from '../store/actions';
+import './searchBar.css';
 
 
 
@@ -17,9 +18,9 @@ export const SearchBar = () => {
     }
 
   return (
-    <div>
-        <input type="text" onChange={onInputChange} value={search}/>
-        <button type='button' onClick={onClick}>Search</button>
+    <div className='search_container'>
+        <input className='inputSearch' type="text" onChange={onInputChange} value={search} placeholder="Search Country" />
+        <button className='buttonSearch' type='button' onClick={onClick}></button>
     </div>
   )
 }

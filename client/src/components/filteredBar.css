@@ -1,0 +1,108 @@
+.filteredBar_container {
+    width: 1100px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.order_container {
+    width: 150px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #4A4A4A;
+}
+
+.filtered_inputs_container {
+    width: 450px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filtered_input_continent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtered_input_activity {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_continent {
+    border-radius: 10px;
+    border: 0;
+    height: 22px;
+    color: #969696;
+    outline: none;
+    padding-left: 10px;
+}
+
+.input_activity {
+    border-radius: 10px;
+    border: 0;
+    height: 22px;
+    color: #969696;
+    outline: none;
+    padding-left: 10px;
+}
+
+.button_continent {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/America.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button_activity {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/Roller\ Skating.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button_sort {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/Alphabetical\ Sorting\ 2.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button_decline{
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/Decline.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+

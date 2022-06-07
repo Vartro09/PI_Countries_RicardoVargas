@@ -1,0 +1,28 @@
+.search_container{
+    width: 200px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputSearch {
+    border-radius: 10px;
+    border: 0;
+    height: 22px;
+    color: #969696;
+    outline: none;
+    padding-left: 10px;
+}
+
+.buttonSearch {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/Search.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
