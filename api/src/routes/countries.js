@@ -40,13 +40,16 @@ router.get( '/', async (req, res, next) => {
                 name: {
                         [Op.iLike]: `%${name}%`
                     }
-                }
+                },
+                include: {
+                    model: Activity,
+                    attributes:['name', 'difficult', 'duration', 'season']
+                } 
             });
-            if (matchName.length === 0) {
-                console.log(matchName)
-                return res.json(`Error: '${name}' not founded, please enter a correct data`);
+            if (matchName.length !== 0) {
+                return res.json(matchName);
             }
-            return res.json(matchName);
+            return res.json(`Error: '${name}' not founded, please enter a correct data`);
         }
         return await Country.findAll()
                 .then( (countries) => {
@@ -66,7 +69,10 @@ router.get('/:id', async (req,res,next) => {
                 attributes:['name', 'difficult', 'duration', 'season']
             } 
         });
-        res.json(countryData)
+        if (countryData) {
+            res.json(countryData)
+        }
+        res.json('Error: 404, Country not founded')
     } catch (error) {
         return next(error);
     }

@@ -1,0 +1,8 @@
+.home_page{
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(../../img/Rectangle\ 9.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

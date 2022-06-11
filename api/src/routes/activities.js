@@ -3,6 +3,18 @@ const { Activity, Country } = require('../db');
 
 const router = Router();
 
+router.get('/', async (req,res,next) => {
+    try {
+        const activities = await Activity.findAll();
+        if (activities.length > 0) {
+            return res.json(activities);
+        } 
+        return res.json("Error, coudn't get activities");
+    } catch (error) {
+        next(error)
+    }
+});
+
 router.post( '/', async (req, res, next) => {
     const { name, difficult, duration, season, country } = req.body;
     try {
@@ -21,5 +33,7 @@ router.post( '/', async (req, res, next) => {
         return next(error);
     }
 });
+
+
 
 module.exports = router;

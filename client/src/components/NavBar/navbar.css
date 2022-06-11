@@ -1,7 +1,6 @@
 .navBar_container {
     width: 100%;
     height: 60px;
-    margin-bottom: 20px;
     background-color: #484848;
     display: flex;
     flex-direction: row;

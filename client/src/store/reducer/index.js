@@ -2,7 +2,10 @@ import { FETCH_COUNTRIES, SEARCH_COUNTRIES } from "../actions"
 
 const initialState = {
     countries: [],
-    filteredCountries: []
+    filteredCountries: [],
+    backUpCountries: [],
+    country: [],
+    activities: []
 }
 
 
@@ -18,6 +21,7 @@ export default function reducer(state= initialState, action) {
                 ...state,
                 countries: action.payload
             }
+
     
         default:
             return state

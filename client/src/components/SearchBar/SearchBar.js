@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchCountries } from '../store/actions';
 import './searchBar.css';
-
+import { searchCountries } from '../../store/actions';
 
 
 export const SearchBar = () => {
     const [search, setSearch] = useState('');
+
     let dispatch = useDispatch();
 
     function onClick() {
@@ -19,8 +19,19 @@ export const SearchBar = () => {
 
   return (
     <div className='search_container'>
-        <input className='inputSearch' type="text" onChange={onInputChange} value={search} placeholder="Search Country" />
-        <button className='buttonSearch' type='button' onClick={onClick}></button>
+        <input 
+          className='inputSearch' 
+            type="text" onChange={onInputChange} 
+            value={search} 
+            placeholder="Search Country" 
+        />
+        <button 
+          className='buttonSearch' 
+          type='button' 
+          onClick={onClick}
+        >
+          
+        </button>
     </div>
   )
 }

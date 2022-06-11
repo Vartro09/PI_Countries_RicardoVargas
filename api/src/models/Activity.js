@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
       values: [ "1", "2", "3", "4", "5"]
     },
     duration: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
     },
     season: {
       type: DataTypes.ENUM,

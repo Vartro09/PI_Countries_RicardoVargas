@@ -66,7 +66,7 @@
 .button_continent {
     width: 25px;
     height: 25px;
-    background-image: url(../img/America.png);
+    background-image: url(../../img/America.png);
     background-size: cover;
     background-color: transparent;
     border: none;
@@ -76,7 +76,7 @@
 .button_activity {
     width: 25px;
     height: 25px;
-    background-image: url(../img/Roller\ Skating.png);
+    background-image: url(../../img/Roller\ Skating.png);
     background-size: cover;
     background-color: transparent;
     border: none;
@@ -86,7 +86,7 @@
 .button_sort {
     width: 25px;
     height: 25px;
-    background-image: url(../img/Alphabetical\ Sorting\ 2.png);
+    background-image: url(../../img/Alphabetical\ Sorting\ 2.png);
     background-size: cover;
     background-color: transparent;
     border: none;
@@ -96,7 +96,7 @@
 .button_decline{
     width: 25px;
     height: 25px;
-    background-image: url(../img/Decline.png);
+    background-image: url(../../img/Decline.png);
     background-size: cover;
     background-color: transparent;
     border: none;
