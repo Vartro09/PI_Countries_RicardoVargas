@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Countries } from '../../Countries/Countries';
+import { Countries } from '../Countries/Countries';
 import { fetchCountries } from '../../store/actions';
 import { FilteredBar } from '../FilteredBar/FilteredBar';
 import { Pagination } from '../Pagination/Pagination';
 import './HomePage.css';
+
 
 
 export const HomePage = () => {

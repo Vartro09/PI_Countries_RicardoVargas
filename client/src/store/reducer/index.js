@@ -1,4 +1,4 @@
-import { FETCH_COUNTRIES, SEARCH_COUNTRIES } from "../actions"
+import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS } from "../actions"
 
 const initialState = {
     countries: [],
@@ -19,9 +19,13 @@ export default function reducer(state= initialState, action) {
         case SEARCH_COUNTRIES:
             return{
                 ...state,
-                countries: action.payload
+                filteredCountries: action.payload
             }
-
+        case COUNTRY_DETAILS:
+            return {
+                ...state,
+                country: action.payload
+            }
     
         default:
             return state

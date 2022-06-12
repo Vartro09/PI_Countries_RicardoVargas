@@ -1,0 +1,49 @@
+.searchName_page{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../../img/Rectangle\ 9.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 30px;
+  }
+
+.countries_container {
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 30px 4px 30px;
+    border-radius: 10px;
+}
+
+.info_container {
+    width: 1100px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.text_results {
+    font-size: 25px;   
+    text-align: center;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+}
+
+.num_results {
+    font-weight: bold;
+}
+
+.navLink_container {
+    text-decoration: none;
+}
+
+.navLink_container:hover {
+    color: #D89700;
+}

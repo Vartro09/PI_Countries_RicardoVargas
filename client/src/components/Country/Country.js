@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './country.css'
 
-const Country = ( { name, img, continent } ) => {
+const Country = ( { name, img, continent, id } ) => {
   return (
     <div className='countryCard'>
 
@@ -11,7 +12,9 @@ const Country = ( { name, img, continent } ) => {
           <h3 className='country_tag_country'>Continent:</h3>
           <h3 className='country_continent_title'> {continent} </h3>
         </div>
-        <button className='btn_country' >DESCRIPTION</button>
+        <NavLink to={`/country/${id}`}>
+          <button className='btn_country' >DESCRIPTION</button>
+        </NavLink>
 
     </div>
   )

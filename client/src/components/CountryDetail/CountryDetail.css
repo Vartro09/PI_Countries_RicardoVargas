@@ -1,0 +1,16 @@
+.countrieDetail_container {
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 30px 4px 30px;
+    border-radius: 10px;
+}
+
+.detailImg{
+    width: 200px;
+    height: 150px;
+    border-radius: 100%;
+}

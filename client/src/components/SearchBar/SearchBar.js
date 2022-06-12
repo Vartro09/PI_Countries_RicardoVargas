@@ -1,37 +1,35 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import './searchBar.css';
-import { searchCountries } from '../../store/actions';
+import { Link } from 'react-router-dom';
 
 
 export const SearchBar = () => {
-    const [search, setSearch] = useState('');
-
-    let dispatch = useDispatch();
+    const [name, setName] = useState('');
 
     function onClick() {
-        dispatch(searchCountries(search));
+        setName('');
     }
 
     function onInputChange(e){
-        setSearch(e.target.value);
+      setName(e.target.value);
     }
 
   return (
     <div className='search_container'>
         <input 
-          className='inputSearch' 
+            className='inputSearch' 
             type="text" onChange={onInputChange} 
-            value={search} 
+            value={name} 
             placeholder="Search Country" 
         />
-        <button 
-          className='buttonSearch' 
-          type='button' 
-          onClick={onClick}
-        >
-          
-        </button>
+        <Link to={ `/search/${name}` }>
+          <button 
+            className='buttonSearch' 
+            type='button' 
+            onClick={onClick}
+          >
+          </button>  
+        </Link>
     </div>
   )
 }

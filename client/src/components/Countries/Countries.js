@@ -1,5 +1,5 @@
 import React from 'react'
-import Country from '../components/Country/Country';
+import Country from '../Country/Country';
 import './countries.css';
 
 export const Countries = ( { countries } ) => {
@@ -8,7 +8,7 @@ export const Countries = ( { countries } ) => {
       <div className='countries_container'>
           {
               countries && countries.map( c =>  {
-                return  <Country key={c.id} name={c.name} img={c.img}  continent={c.continent} />
+                return  <Country key={c.id} name={c.name} img={c.img} continent={c.continent} id={c.id} />
               })
           }
       </div>
