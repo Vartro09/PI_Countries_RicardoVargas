@@ -1,11 +1,11 @@
-import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS } from "../actions"
+import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, FETCH_ACTIVITIES, SEARCH_ACTIVITIES } from "../actions"
 
 const initialState = {
     countries: [],
     filteredCountries: [],
     backUpCountries: [],
     country: [],
-    activities: []
+    arrayActivities: []
 }
 
 
@@ -25,6 +25,28 @@ export default function reducer(state= initialState, action) {
             return {
                 ...state,
                 country: action.payload
+            }
+        case FETCH_ACTIVITIES:
+            return {
+                ...state,
+                arrayActivities: action.payload
+            }
+        case SEARCH_ACTIVITIES:
+            if(action.payload.length !== 0) {
+                const selectedActivities = action.payload
+                const filteredActivities = state.backUpCountries.filter((country) => {
+                    console.log(country.activity)
+                    return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
+                })
+                return {
+                    ...state,
+                    countries: filteredActivities
+                }
+            } else {
+                return {
+                    ...state,
+                    countries: state.backUpCountries
+                }
             }
     
         default:

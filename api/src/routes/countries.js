@@ -23,7 +23,6 @@ const dataCarghed = (async () => {
         }
         );
     array.forEach(async (c) => await Country.create(c));
-    console.log(array);
 })();
 
 const router = Router();
@@ -50,11 +49,12 @@ router.get( '/', async (req, res, next) => {
                 return res.json(matchName);
             }
             return res.json(`Error: '${name}' not founded, please enter a correct data`);
+        } else {
+            return await Country.findAll()
+                    .then( (countries) => {
+                        return res.send(countries);
+                    }) 
         }
-        return await Country.findAll()
-                .then( (countries) => {
-                    res.send(countries);
-                }) 
     } catch (error) { 
         next(error);
     }
@@ -70,11 +70,12 @@ router.get('/:id', async (req,res,next) => {
             } 
         });
         if (countryData) {
-            res.json(countryData)
+            return res.json(countryData);
+        } else {
+            return res.json('Error: 404, Country not founded');
         }
-        res.json('Error: 404, Country not founded')
     } catch (error) {
-        return next(error);
+        next(error);
     }
 });
 
