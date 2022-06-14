@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getActivities, searchActivities } from '../../store/actions';
+import { getActivities, searchActivities, orderNameAz } from '../../store/actions';
 import './filteredBar.css';
 
 
@@ -9,11 +9,16 @@ export const FilteredBar = () => {
     const arrayActivities = useSelector( state => state.arrayActivities);
 
     const [activity, setActivity] = useState([]);
+    const [ orderA, setOrderA ] = useState('');
 
     useEffect( () => {
         dispatch(getActivities());
         dispatch(searchActivities(activity));
     }, [dispatch, activity]);
+
+    const handleAz = () => {
+        dispatch(orderNameAz());
+    }
 
     const handleActivities = (e) => {
         if(e.target.value !== 'Filter by activity' && !activity.includes(e.target.value)){
@@ -30,7 +35,7 @@ export const FilteredBar = () => {
     <div className='filteredBar_container'>
         <div className='order_container'>
             <h4>Order by:</h4>
-            <button className='button_sort'></button>
+            <button className='button_sort' onClick={handleAz}></button>
             <button className='button_decline'></button>
         </div>
 
@@ -45,13 +50,13 @@ export const FilteredBar = () => {
                     onChange={e => handleActivities(e)}    
                 >
                     <option>Filter by activity</option>
-                    {
+                    {/* {
                         arrayActivities.map( a => {
                             return(
                                 <option key={a.name} value={a.name} > {a.name} </option>
                             )
                         })
-                    }
+                    } */}
                 </select>
                 
                 <button className='button_activity'></button>

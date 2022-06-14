@@ -4,6 +4,7 @@ export const SEARCH_COUNTRIES = 'SEARCH_COUNTRIES';
 export const COUNTRY_DETAILS = 'COUNTRY_DETAILS';
 export const FETCH_ACTIVITIES = 'FETCH_ACTIVITIES';
 export const SEARCH_ACTIVITIES = 'SEARCH_ACTIVITIES';
+export const ASC = 'ASC';
 
 
 export function fetchCountries() {
@@ -70,6 +71,21 @@ export function searchActivities(payload) {
     return {
         type: SEARCH_ACTIVITIES,
         payload
+    }
+}
+
+export function orderNameAz() {
+    return function (dispatch) {
+        axios.get(`http://localhost:3001/api/countries/asc`)
+        .then( (countries) => {
+            dispatch({
+                type: ASC,
+                payload: countries.data
+            });
+        })
+        .catch( (error) => {
+            console.log(error)
+        });
     }
 }
 

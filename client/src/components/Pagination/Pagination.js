@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Pagination.css';
 
 export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPage }) => {
 
@@ -61,12 +62,13 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
   return (
     <div>
       <ul className="pageNumbers">
-            <li>
-                <button
+            <li className='arrowBtn'>
+                <button 
+                
                 disabled={currentPage === pages[0] ? true : false}
                 onClick={handlePrevbtn}
                 >
-                    Anterior
+                    Back
                 </button>
             </li>
             {pageDecrementBtn}
@@ -76,7 +78,7 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
                 <button
                 onClick={handleNextbtn}
                 disabled={currentPage === pages[pages.length - 1] ? true : false}>
-                    Siguiente
+                    Next
                 </button>
             </li>
         </ul>

@@ -1,0 +1,20 @@
+.pageNumbers {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.arrowBtn {
+    color: brown;
+}
+
+ul li {
+    color: #FFF;
+    background-color: #484848;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li button {
+    background-color: #fff;
+}

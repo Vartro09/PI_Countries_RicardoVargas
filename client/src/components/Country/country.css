@@ -54,15 +54,17 @@
     height: 30px;
     margin-top: 10px;
     font-size: 12px;
-    font-weight: bold;
-    background-color: #D8D9DE;
+    background-color: #FFF;
     color: #5B5B5B;
-    border-radius: 10px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
+    transition: 0.6s ease;
 }
 
 .btn_country:hover {
     background-color: #D89700;
+    border: 1px solid #D89700;
     color: #fff;
 }
+
