@@ -7,14 +7,16 @@ export const Countries = ( { countries } ) => {
     <div>
       <div className='countries_container'>
           {
-              countries && countries.map( c =>  {
-                return  <Country 
-                        key={c.id} 
-                        id={c.id} 
-                        name={c.name} 
-                        img={c.img} 
-                        continent={c.continent} 
-                        />
+              countries && countries.map( (c) =>  {
+                return  (
+                          <Country 
+                          key={c.id} 
+                          id={c.id} 
+                          name={c.name} 
+                          img={c.img} 
+                          continent={c.continent} 
+                          />
+                        )
               })
           }
       </div>
