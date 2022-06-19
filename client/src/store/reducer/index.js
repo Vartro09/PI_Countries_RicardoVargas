@@ -1,11 +1,11 @@
-import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, FETCH_ACTIVITIES, SEARCH_ACTIVITIES, ASC} from "../actions"
+import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, ORDER_A_Z, ORDER_Z_A} from "../actions"
 
 const initialState = {
     countries: [],
     filteredCountries: [],
     backUpCountries: [],
     country: [],
-    arrayActivities: []
+    arrayActivities: [],
 }
 
 
@@ -14,7 +14,8 @@ export default function reducer(state= initialState, action) {
         case FETCH_COUNTRIES:
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                filteredCountries: action.payload
             }
         case SEARCH_COUNTRIES:
             return{
@@ -26,32 +27,44 @@ export default function reducer(state= initialState, action) {
                 ...state,
                 country: action.payload
             }
-        case FETCH_ACTIVITIES:
+        // case FETCH_ACTIVITIES:
+        //     return {
+        //         ...state,
+        //         arrayActivities: action.payload
+        //     }
+        // case SEARCH_ACTIVITIES:
+        //     if(action.payload.length !== 0) {
+        //         const selectedActivities = action.payload
+        //         const filteredActivities = state.backUpCountries.filter((country) => {
+        //             return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
+        //         })
+        //         return {
+        //             ...state,
+        //             countries: filteredActivities
+        //         }
+        //     } else {
+        //         return {
+        //             ...state,
+        //             countries: state.backUpCountries
+        //         }
+        //     }
+        case ORDER_A_Z :
+            let backup = [ ...state.countries ]
+            let orderAZ = backup.sort(function (a,b) {
+                return ('' + a.name).localeCompare(b.name);
+            })
             return {
                 ...state,
-                arrayActivities: action.payload
+                filteredCountries: orderAZ,
             }
-        case SEARCH_ACTIVITIES:
-            if(action.payload.length !== 0) {
-                const selectedActivities = action.payload
-                const filteredActivities = state.backUpCountries.filter((country) => {
-                    console.log(country.activity)
-                    return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
-                })
-                return {
-                    ...state,
-                    countries: filteredActivities
-                }
-            } else {
-                return {
-                    ...state,
-                    countries: state.backUpCountries
-                }
-            }
-        case ASC:
+        case ORDER_Z_A :
+            let backup2 = [ ...state.countries ]
+            let orderZA = backup2.sort(function (b,a) {
+                return ('' + a.name).localeCompare(b.name);
+            })
             return {
                 ...state,
-                countries: action.payload
+                filteredCountries: orderZA,
             }
     
         default:

@@ -2,23 +2,25 @@ import axios from 'axios';
 export const FETCH_COUNTRIES = 'FETCH_COUNTRIES';
 export const SEARCH_COUNTRIES = 'SEARCH_COUNTRIES';
 export const COUNTRY_DETAILS = 'COUNTRY_DETAILS';
-export const FETCH_ACTIVITIES = 'FETCH_ACTIVITIES';
-export const SEARCH_ACTIVITIES = 'SEARCH_ACTIVITIES';
-export const ASC = 'ASC';
+// export const FETCH_ACTIVITIES = 'FETCH_ACTIVITIES';
+// export const SEARCH_ACTIVITIES = 'SEARCH_ACTIVITIES';
+export const ORDER_A_Z = 'ORDER_A_Z';
+export const ORDER_Z_A = 'ORDER_Z_A';
 
 
 export function fetchCountries() {
-    return function (dispatch) {
-        axios.get(`http://localhost:3001/api/countries/`)
-        .then( (countries) => {
-            dispatch({
-                type: FETCH_COUNTRIES,
-                payload: countries.data
-            });
-        })
-        .catch( (error) => {
-            console.log(error)
-        });
+    return async function (dispatch) {
+        try {
+            axios.get(`http://localhost:3001/api/countries/`)
+            .then( (countries) => {
+                dispatch({
+                    type: FETCH_COUNTRIES,
+                    payload: countries.data
+                });
+            })
+        } catch (error) {
+            console.log('Error fetchCountries function' + error);
+        }
     }
 }
 
@@ -52,40 +54,53 @@ export function countryDetails(payload) {
     }
 }
 
-export function getActivities() {
-    return function (dispatch) {
-        axios.get(`http://localhost:3001/api/activities/`)
-        .then( (activities) => {
-            dispatch({
-                type: FETCH_ACTIVITIES,
-                payload: activities.data
-            });
-        })
-        .catch( (error) => {
-            console.log(error)
-        });
-    }
-}
+// export function getActivities() {
+//     return function (dispatch) {
+//         axios.get(`http://localhost:3001/api/activities/`)
+//         .then( (activities) => {
+//             dispatch({
+//                 type: FETCH_ACTIVITIES,
+//                 payload: activities.data
+//             });
+//         })
+//         .catch( (error) => {
+//             console.log(error)
+//         });
+//     }
+// }
 
-export function searchActivities(payload) {
+// export function searchActivities(payload) {
+//     return {
+//         type: SEARCH_ACTIVITIES,
+//         payload
+//     }
+// }
+
+export function orderAz() {
     return {
-        type: SEARCH_ACTIVITIES,
-        payload
+        type: ORDER_A_Z
     }
 }
 
-export function orderNameAz() {
-    return function (dispatch) {
-        axios.get(`http://localhost:3001/api/countries/asc`)
-        .then( (countries) => {
-            dispatch({
-                type: ASC,
-                payload: countries.data
-            });
-        })
-        .catch( (error) => {
-            console.log(error)
-        });
+export function orderZa() {
+    return {
+        type: ORDER_Z_A
     }
 }
+
+
+// export function orderNameAz() {
+//     return function (dispatch) {
+//         axios.get(`http://localhost:3001/api/countries/asc`)
+//         .then( (countries) => {
+//             dispatch({
+//                 type: ASC,
+//                 payload: countries.data
+//             });
+//         })
+//         .catch( (error) => {
+//             console.log(error)
+//         });
+//     }
+// }
 

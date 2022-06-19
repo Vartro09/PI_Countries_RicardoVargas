@@ -16,7 +16,7 @@ export const Countries = ( { countries } ) => {
                           img={c.img} 
                           continent={c.continent} 
                           />
-                        )
+                        )  
               })
           }
       </div>

@@ -10,7 +10,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
 }
+
 
 .country_Img {
     width: 244px;
@@ -53,18 +55,21 @@
     width: 136px;
     height: 30px;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 10px;
     background-color: #FFF;
     color: #5B5B5B;
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: 0.6s ease;
-}
+    letter-spacing: 2px;
+    border: 1px solid #d1d1d1;
+    transition: 0.6s ease all;
+} 
 
 .btn_country:hover {
-    background-color: #D89700;
-    border: 1px solid #D89700;
-    color: #fff;
+    background-color: #FFD600;
+    border: 1px solid #FFD600;
+    letter-spacing: 0px;
+    text-decoration: none;
 }
 

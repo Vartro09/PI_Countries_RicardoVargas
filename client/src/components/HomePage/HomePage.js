@@ -1,32 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+// import { orderAz } from '../../store/actions';
 import { Countries } from '../Countries/Countries';
-import { fetchCountries } from '../../store/actions';
+// import { fetchCountries } from '../../store/actions';
 import { FilteredBar } from '../FilteredBar/FilteredBar';
 import { Pagination } from '../Pagination/Pagination';
 import './HomePage.css';
 
 
+export const HomePage = ( ) => {
+  // const dispatch = useDispatch();
+  const countries = useSelector(state => state.filteredCountries);
+  const ordenado = useSelector(state => state.ordenado);
 
-export const HomePage = () => {
-  const dispatch = useDispatch();
-  const countries = useSelector(state => state.countries);
+  if (ordenado) {
+    console.log(ordenado)
+  }
+
   const [currentPage, setCurrentPage] = useState(1);
-   const [itemsPerPage ] = useState(8);
+  const [itemsPerPage ] = useState(8);
 
-   useEffect(() => {
-      dispatch(fetchCountries());
-   }, [dispatch]);
+
+  //  useEffect(() => {
+  //     dispatch(orderAz());
+  //  }, [dispatch]);
 
    const indexOfLastItem = currentPage * itemsPerPage;
    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-   const currentItems = countries.slice(indexOfFirstItem, indexOfLastItem)
-
+   const currentItems = countries.slice(indexOfFirstItem, indexOfLastItem);
+   
    return (
 
     <div className="home_page">
       <div>
-        <FilteredBar />
+        <FilteredBar  />
       </div>
       <div>
         <Countries countries={currentItems} />
@@ -37,3 +44,4 @@ export const HomePage = () => {
     </div>
   )
 }
+

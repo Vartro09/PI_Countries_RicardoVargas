@@ -36,12 +36,12 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
 
     let pageIncrementBtn = null;
     if(pages.length > maxPageNumberLimit) {
-        pageIncrementBtn = <li onClick={handleNextbtn}> &hellip; </li>
+        pageIncrementBtn = <li className='normal' onClick={handleNextbtn}> &hellip; </li>
     }
 
     let pageDecrementBtn = null;
     if(minPageNumberLimit >= 1) {
-        pageDecrementBtn = <li onClick={handlePrevbtn}> &hellip; </li>
+        pageDecrementBtn = <li className='normal' onClick={handlePrevbtn}> &hellip; </li>
     }
 
 
@@ -49,7 +49,7 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
         if(number < maxPageNumberLimit + 1 && number > minPageNumberLimit){
             return (
                 <li key={number} id={number} onClick={e => handleClick(e)}
-                className={currentPage === number ? 'active' : null}
+                className={currentPage === number ? 'active' : 'normal'}
                 >
                     {number}
                 </li>
@@ -64,7 +64,7 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
       <ul className="pageNumbers">
             <li className='arrowBtn'>
                 <button 
-                
+                className='btnBack'
                 disabled={currentPage === pages[0] ? true : false}
                 onClick={handlePrevbtn}
                 >
@@ -74,8 +74,9 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
             {pageDecrementBtn}
             {renderPageNumbers}
             {pageIncrementBtn}
-            <li>
+            <li className='arrowBtn'>
                 <button
+                className='btnBack'
                 onClick={handleNextbtn}
                 disabled={currentPage === pages[pages.length - 1] ? true : false}>
                     Next

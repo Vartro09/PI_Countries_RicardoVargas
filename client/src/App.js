@@ -6,10 +6,20 @@ import { NavBar } from '../src/components/NavBar/NavBar'
 import { AddActivity } from './components/AddActivity/AddActivity';
 import { SearchName } from './components/SearchName/SearchName';
 import { CountryDetail } from './components/CountryDetail/CountryDetail';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCountries } from './store/actions';
 
 
 function App() {
   let location = useLocation();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCountries());
+ }, []);
+
   return (
     <div className="App">
       {location.pathname !== '/' && <NavBar />}
