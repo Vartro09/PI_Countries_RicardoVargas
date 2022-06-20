@@ -15,6 +15,7 @@ export const Countries = ( { countries } ) => {
                           name={c.name} 
                           img={c.img} 
                           continent={c.continent} 
+                          population={c.population}
                           />
                         )  
               })

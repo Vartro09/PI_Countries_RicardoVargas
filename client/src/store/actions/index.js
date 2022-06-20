@@ -6,6 +6,8 @@ export const COUNTRY_DETAILS = 'COUNTRY_DETAILS';
 // export const SEARCH_ACTIVITIES = 'SEARCH_ACTIVITIES';
 export const ORDER_A_Z = 'ORDER_A_Z';
 export const ORDER_Z_A = 'ORDER_Z_A';
+export const ORDER_POPULATION_DOWN = 'ORDER_POPULATION_DOWN';
+export const ORDER_POPULATION_UP = 'ORDER_POPULATION_UP';
 
 
 export function fetchCountries() {
@@ -87,6 +89,21 @@ export function orderZa() {
         type: ORDER_Z_A
     }
 }
+
+export function orderPopulationDown() {
+    return {
+        type: ORDER_POPULATION_DOWN
+    }
+}
+
+export function orderPopulationUp() {
+    return {
+        type: ORDER_POPULATION_UP
+    }
+}
+
+
+
 
 
 // export function orderNameAz() {

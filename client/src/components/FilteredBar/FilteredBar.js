@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { fetchCountries, orderAz, orderZa } from '../../store/actions';
+import { fetchCountries, orderAz, orderPopulationDown, orderPopulationUp, orderZa } from '../../store/actions';
 import './filteredBar.css';
 
 
@@ -8,14 +8,6 @@ import './filteredBar.css';
 export const FilteredBar = ( ) => {
     const dispatch = useDispatch();
     const countries = useSelector( state => state.filteredCountries);
-
-    // const [activity, setActivity] = useState([]);
-    // const [ orderA, setOrderA ] = useState('');
-
-    // useEffect( () => {
-    //     dispatch(getActivities());
-    //     dispatch(searchActivities(activity));
-    // }, [dispatch, activity]);
 
 
     const handleAz = () => {
@@ -26,16 +18,22 @@ export const FilteredBar = ( ) => {
         dispatch(orderZa());
     }
 
+    const handlePopulationDown = () => {
+        dispatch(orderPopulationDown());
+    }
+
+    const handlePopulationUp = () => {
+        dispatch(orderPopulationUp());
+    }
+
     const reset = () => {
         dispatch(fetchCountries());
     }
 
-    // const handleActivities = (e) => {
-    //     if(e.target.value !== 'Filter by activity' && !activity.includes(e.target.value)){
-    //         setActivity([...activity, e.target.value])
-    //     }
-    // }
-
+    const onContinentChange = (e) => {
+        let continent = e.target.value
+        console.log(continent)
+    }
 
 
 
@@ -51,8 +49,8 @@ export const FilteredBar = ( ) => {
             <button className='button_sort2' onClick={handleZa}></button>
             
             <h3 className='typeOrder'>Population:</h3>
-            <button className='button_down'></button>
-            <button className='button_up'></button>
+            <button className='button_down' onClick={handlePopulationDown}></button>
+            <button className='button_up' onClick={handlePopulationUp}></button>
 
             <h3 className='typeOrder'>Reset:</h3>
             <button className='button_reset' onClick={reset}></button>
@@ -60,7 +58,16 @@ export const FilteredBar = ( ) => {
 
         <div className='filtered_inputs_container'>
             <div className='filtered_input_continent'>
-                <input className='input_activity' placeholder='Search by activity'/>
+                <select className='input_continent' onChange={(e) => onContinentChange(e)}>
+                    <option value='Filter by continent'>Filter by continent</option>
+                    <option>Africa</option>
+                    <option>Antarctica</option>
+                    <option>Europe</option>
+                    <option>Oceania</option>
+                    <option>North America</option>
+                    <option>South America</option>
+                </select>
+                {/* <input className='input_activity' placeholder='Search by continent'/> */}
                 <button className='button_continent'></button>
             </div>
             <div className='filtered_input_activity'>

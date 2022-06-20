@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './country.css'
 
-const Country = ( { name, img, continent, id } ) => {
+const Country = ( { name, img, continent, id, population } ) => {
   return (
     <div className='countryCard'>
 
@@ -11,6 +11,7 @@ const Country = ( { name, img, continent, id } ) => {
           <h2 className='country_title' >  {name.toUpperCase()} </h2>
           <h3 className='country_tag_country'>Continent:</h3>
           <h3 className='country_continent_title'> {continent} </h3>
+          <p> {population} </p>
         </div>
         <NavLink to={`/country/${id}`}>
           <button className='btn_country' >DESCRIPTION</button>

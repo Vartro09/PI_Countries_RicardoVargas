@@ -1,4 +1,4 @@
-import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, ORDER_A_Z, ORDER_Z_A} from "../actions"
+import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, ORDER_A_Z, ORDER_Z_A, ORDER_POPULATION_DOWN, ORDER_POPULATION_UP} from "../actions"
 
 const initialState = {
     countries: [],
@@ -65,6 +65,24 @@ export default function reducer(state= initialState, action) {
             return {
                 ...state,
                 filteredCountries: orderZA,
+            }
+        case ORDER_POPULATION_DOWN :
+            let backup3 = [ ...state.countries ]
+            let orderPopulationDown = backup3.sort(function (a,b) {
+                return a.population - b.population ;
+            })
+            return {
+                ...state,
+                filteredCountries: orderPopulationDown,
+            }
+        case ORDER_POPULATION_UP :
+            let backup4 = [ ...state.countries ]
+            let orderPopulationUp = backup4.sort(function (a,b) {
+                return b.population - a.population ;;
+            })
+            return {
+                ...state,
+                filteredCountries: orderPopulationUp,
             }
     
         default:
