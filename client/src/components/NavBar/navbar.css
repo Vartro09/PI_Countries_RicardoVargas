@@ -4,6 +4,55 @@
     background-color: #484848;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+
+.nav_logo_container {
+    text-decoration: none;
+}
+
+.logo_Container {
+    width: 210px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Logo {
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 20px;
+}
+
+.Img_Logo {
+    width: 25px;
+    height: 25px;
+    background-image: url('../../img/Around.png');
+    background-size: cover;
+}
+
+.nav_container {
+    width: 350px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.txtAddActivity {
+    text-decoration: none;
+    color: #FFF;
+
+    transition: 0.4s ease all;
+}
+
+.txtAddActivity:hover {
+    color: #fde56e;
 }

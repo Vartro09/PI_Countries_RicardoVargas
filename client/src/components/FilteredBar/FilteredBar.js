@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { fetchCountries, orderAz, orderPopulationDown, orderPopulationUp, orderZa } from '../../store/actions';
+import { fetchCountries, filterByContinent, orderAz, orderPopulationDown, orderPopulationUp, orderZa } from '../../store/actions';
 import './filteredBar.css';
 
 
@@ -31,12 +31,13 @@ export const FilteredBar = ( ) => {
     }
 
     const onContinentChange = (e) => {
-        let continent = e.target.value
-        console.log(continent)
+        let continent = e.target.value;
+        if (e.target.value === 'Filter by continent') {
+            dispatch(fetchCountries());
+        } else {
+            dispatch(filterByContinent(continent));
+        }
     }
-
-
-
 
 
   return (

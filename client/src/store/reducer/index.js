@@ -1,8 +1,9 @@
-import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, ORDER_A_Z, ORDER_Z_A, ORDER_POPULATION_DOWN, ORDER_POPULATION_UP} from "../actions"
+import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, ORDER_A_Z, ORDER_Z_A, ORDER_POPULATION_DOWN, ORDER_POPULATION_UP, FILTER_BY_CONTINENT} from "../actions"
 
 const initialState = {
     countries: [],
     filteredCountries: [],
+    filteredContinents: [],
     backUpCountries: [],
     country: [],
     arrayActivities: [],
@@ -83,6 +84,13 @@ export default function reducer(state= initialState, action) {
             return {
                 ...state,
                 filteredCountries: orderPopulationUp,
+            }
+        case FILTER_BY_CONTINENT:
+            let arrayContinent = [...state.countries]
+            let continentFounded = arrayContinent.filter( c => action.payload === c.continent)
+            return {
+                ...state,
+                filteredCountries: continentFounded
             }
     
         default:
