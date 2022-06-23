@@ -9,6 +9,7 @@ export const ORDER_Z_A = 'ORDER_Z_A';
 export const ORDER_POPULATION_DOWN = 'ORDER_POPULATION_DOWN';
 export const ORDER_POPULATION_UP = 'ORDER_POPULATION_UP';
 export const FILTER_BY_CONTINENT = 'FILTER_BY_CONTINENT';
+export const POST_ACTIVITY = 'POST_ACTIVITY';
 
 
 
@@ -57,6 +58,34 @@ export function countryDetails(payload) {
         });
     }
 }
+
+export function postActivity(payload) {
+    return async function (dispatch) {
+        try {
+            axios.post(`http://localhost:3001/api/activities/`, payload)
+            .then( (activities) => {
+                dispatch({
+                    type: POST_ACTIVITY,
+                    payload: activities.data
+                });
+            })
+        } catch (error) {
+            console.log('Error action postActivity ' + error)
+        }
+    }
+
+    // return async function (dispatch) {
+    //     try {
+    //         var json = await axios.post('http://localhost:3001/api/activities/', payload)
+    //         return dispatch({
+    //             type: POST_ACTIVITY,
+    //             payload: json.data
+    //         })
+    //     } catch (error) {
+    //         console.log('Error action postActivity ' + error)
+    //     };
+    // };
+};
 
 // export function getActivities() {
 //     return function (dispatch) {

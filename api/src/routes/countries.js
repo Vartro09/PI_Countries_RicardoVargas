@@ -42,7 +42,7 @@ router.get( '/', async (req, res, next) => {
                 },
                 include: {
                     model: Activity,
-                    attributes:['name', 'difficult', 'duration', 'season']
+                    attributes:['name', 'difficulty', 'duration', 'season']
                 } 
             });
             if (matchName.length !== 0) {
@@ -66,7 +66,7 @@ router.get('/:id', async (req,res,next) => {
         let countryData = await Country.findByPk(id,{
             include: {
                 model: Activity,
-                attributes:['name', 'difficult', 'duration', 'season']
+                attributes:['name', 'difficulty', 'duration', 'season']
             } 
         });
         if (countryData) {

@@ -14,6 +14,8 @@ export const CountryDetail = () => {
         dispatch(countryDetails(id));
     }, [dispatch, id])
 
+    console.log(activities);
+
   return (
     <div className='main_container'>
         <div className='countryDetail_container' >
@@ -52,6 +54,7 @@ export const CountryDetail = () => {
                 <div className='div_container_activities'>
                     <h2 className='title_Details'>Activities:</h2>    
                     {
+                        
                         activities && activities.map( (a, index) => {
                             return( 
                                 <h2 key={index} > {a.name} </h2>

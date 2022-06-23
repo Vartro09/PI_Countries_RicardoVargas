@@ -1,7 +1,6 @@
 import React from 'react';
 import './navbar.css';
 import { SearchBar } from '../SearchBar/SearchBar';
-import { AddActivity } from '../AddActivity/AddActivity';
 import { NavLink } from 'react-router-dom';
 
 
