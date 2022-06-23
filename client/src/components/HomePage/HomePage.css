@@ -7,3 +7,19 @@
   background-attachment: fixed;
   padding-bottom: 50px;
 }
+
+.home_page::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  display: none;  /* Ocultar scroll */
+}
+
+body::-webkit-scrollbar {
+  width: 7px;     /* Tamaño del scroll en vertical */
+  background: #4a4a4a;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #FFD600;
+  border-radius: 10px;
+}

@@ -1,0 +1,39 @@
+.social_container {
+    position: fixed;
+    left: 0;
+    bottom: 50%;
+    z-index: 10000;
+    width: 25px;
+    height: 100px;
+    background-color: rgba(74, 74, 74, 0.6);
+    border-radius: 0 8px 8px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img_ln {
+    width: 25px;
+    height: 25px;
+    background-image: url(../../img/LinkedIn.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.img_bh {
+    width: 25px;
+    height: 25px;
+    background-image: url(../../img/Behance.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.img_git {
+    width: 25px;
+    height: 25px;
+    background-image: url(../../img/GitHub.png);
+    background-size: cover;
+    background-position: center;
+}

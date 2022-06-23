@@ -1,4 +1,14 @@
-import { FETCH_COUNTRIES, SEARCH_COUNTRIES, COUNTRY_DETAILS, ORDER_A_Z, ORDER_Z_A, ORDER_POPULATION_DOWN, ORDER_POPULATION_UP, FILTER_BY_CONTINENT, POST_ACTIVITY} from "../actions"
+import { 
+    FETCH_COUNTRIES, 
+    SEARCH_COUNTRIES, 
+    COUNTRY_DETAILS, 
+    ORDER_A_Z, ORDER_Z_A, 
+    ORDER_POPULATION_DOWN, 
+    ORDER_POPULATION_UP, 
+    FILTER_BY_CONTINENT, 
+    POST_ACTIVITY, 
+    FETCH_ACTIVITIES, 
+    SEARCH_ACTIVITIES } from "../actions"
 
 const initialState = {
     countries: [],
@@ -32,27 +42,27 @@ export default function reducer(state= initialState, action) {
             return {
                 ...state,
             };
-        // case FETCH_ACTIVITIES:
-        //     return {
-        //         ...state,
-        //         arrayActivities: action.payload
-        //     }
-        // case SEARCH_ACTIVITIES:
-        //     if(action.payload.length !== 0) {
-        //         const selectedActivities = action.payload
-        //         const filteredActivities = state.backUpCountries.filter((country) => {
-        //             return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
-        //         })
-        //         return {
-        //             ...state,
-        //             countries: filteredActivities
-        //         }
-        //     } else {
-        //         return {
-        //             ...state,
-        //             countries: state.backUpCountries
-        //         }
-        //     }
+        case FETCH_ACTIVITIES:
+            return {
+                ...state,
+                arrayActivities: action.payload
+            }
+        case SEARCH_ACTIVITIES:
+            if(action.payload.length !== 0) {
+                const selectedActivities = action.payload
+                const filteredActivities = state.backUpCountries.filter((country) => {
+                    return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
+                })
+                return {
+                    ...state,
+                    countries: filteredActivities
+                }
+            } else {
+                return {
+                    ...state,
+                    countries: state.backUpCountries
+                }
+            }
         case ORDER_A_Z :
             let backup = [ ...state.countries ]
             let orderAZ = backup.sort(function (a,b) {

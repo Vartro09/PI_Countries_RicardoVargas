@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { fetchCountries, filterByContinent, orderAz, orderPopulationDown, orderPopulationUp, orderZa } from '../../store/actions';
+import { fetchCountries, filterByContinent, orderAz, orderPopulationDown, orderPopulationUp, orderZa, getActivities, filterByActivities } from '../../store/actions';
 import './filteredBar.css';
-
 
 
 export const FilteredBar = ( ) => {
     const dispatch = useDispatch();
     const countries = useSelector( state => state.filteredCountries);
+    const arrayActivities = useSelector( state => state.arrayActivities);
+
+    const [activities, setActivities] = useState([]) 
+
+    useEffect(() => {
+        dispatch(getActivities())
+        dispatch(filterByActivities(activities))
+    }, [dispatch, activities])
 
 
     const handleAz = () => {
@@ -36,6 +43,12 @@ export const FilteredBar = ( ) => {
             dispatch(fetchCountries());
         } else {
             dispatch(filterByContinent(continent));
+        }
+    }
+
+    function handleActivities(e) {
+        if(e.target.value !== 'Seleccionar' && !activities.includes(e.target.value)){
+            setActivities([...activities, e.target.value])
         }
     }
 
@@ -74,16 +87,18 @@ export const FilteredBar = ( ) => {
             <div className='filtered_input_activity'>
             <select
                     className='input_continent'
-                    // onChange={e => handleActivities(e)}
+                    onChange={e => handleActivities(e)}
                 >
                     <option>Filter by activity</option>
-                    {/* {
-                        arrayActivities.map( a => {
-                            return(
-                                <option key={a.name} value={a.name} > {a.name} </option>
-                            )
-                        })
-                    } */}
+                    {
+                    //  arrayActivities && arrayActivities.map( a => {
+                    //         console.log(a)
+                    //         return(
+                                
+                    //             <option key={a.id} value={a.name} > {a.name} </option> 
+                    //         )
+                    //     })
+                    }
                 </select>
 
                 <button className='button_activity'></button>

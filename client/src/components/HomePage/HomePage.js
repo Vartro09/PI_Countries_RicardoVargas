@@ -5,6 +5,7 @@ import { Countries } from '../Countries/Countries';
 // import { fetchCountries } from '../../store/actions';
 import { FilteredBar } from '../FilteredBar/FilteredBar';
 import { Pagination } from '../Pagination/Pagination';
+import { SocialBar } from '../SocialBar/SocialBar';
 import './HomePage.css';
 
 
@@ -32,6 +33,9 @@ export const HomePage = ( ) => {
    return (
 
     <div className="home_page">
+      <div>
+        <SocialBar />
+      </div>
       <div>
         <FilteredBar  />
       </div>
