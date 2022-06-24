@@ -137,6 +137,8 @@ export function filterByActivities(payload) {
         type: FILTER_BY_ACTIVITIES,
         payload: payload
     }
+
+
 };
 
 

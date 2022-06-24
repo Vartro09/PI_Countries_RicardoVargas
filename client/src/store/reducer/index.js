@@ -8,10 +8,12 @@ import {
     FILTER_BY_CONTINENT, 
     POST_ACTIVITY, 
     FETCH_ACTIVITIES, 
-    SEARCH_ACTIVITIES } from "../actions"
+    // SEARCH_ACTIVITIES,
+    FILTER_BY_ACTIVITIES } from "../actions"
 
 const initialState = {
     countries: [],
+    searchCountriesByName: [],
     filteredCountries: [],
     filteredContinents: [],
     backUpCountries: [],
@@ -31,7 +33,7 @@ export default function reducer(state= initialState, action) {
         case SEARCH_COUNTRIES:
             return{
                 ...state,
-                filteredCountries: action.payload
+                searchCountriesByName: action.payload
             }
         case COUNTRY_DETAILS:
             return {
@@ -47,12 +49,16 @@ export default function reducer(state= initialState, action) {
                 ...state,
                 arrayActivities: action.payload
             }
-        case SEARCH_ACTIVITIES:
+        case FILTER_BY_ACTIVITIES:
+            console.log(action.payload)
+            console.log(state.filteredCountries)
             if(action.payload.length !== 0) {
                 const selectedActivities = action.payload
-                const filteredActivities = state.backUpCountries.filter((country) => {
-                    return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
+                const filteredActivities = state.countries.filter((country) => {
+                    return 'Hola'
+                    // return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
                 })
+                console.log(state.countries)
                 return {
                     ...state,
                     countries: filteredActivities

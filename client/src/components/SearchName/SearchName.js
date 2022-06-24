@@ -9,7 +9,7 @@ import './SearchName.css';
 
 export const SearchName = () => {
     const dispatch = useDispatch();
-    const filteredCountries = useSelector( state => state.filteredCountries );
+    const filteredCountries = useSelector( state => state.searchCountriesByName );
     const { name } = useParams(); 
     const txt = '<< return';
     

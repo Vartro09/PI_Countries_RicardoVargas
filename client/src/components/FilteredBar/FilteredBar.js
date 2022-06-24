@@ -8,8 +8,9 @@ export const FilteredBar = ( ) => {
     const dispatch = useDispatch();
     const countries = useSelector( state => state.filteredCountries);
     const arrayActivities = useSelector( state => state.arrayActivities);
+    console.log(arrayActivities)
 
-    const [activities, setActivities] = useState([]) 
+    const [activities, setActivities] = useState([]);
 
     useEffect(() => {
         dispatch(getActivities())
@@ -39,7 +40,7 @@ export const FilteredBar = ( ) => {
 
     const onContinentChange = (e) => {
         let continent = e.target.value;
-        if (e.target.value === 'Filter by continent') {
+        if (continent === 'Filter by continent') {
             dispatch(fetchCountries());
         } else {
             dispatch(filterByContinent(continent));
@@ -47,9 +48,22 @@ export const FilteredBar = ( ) => {
     }
 
     function handleActivities(e) {
-        if(e.target.value !== 'Seleccionar' && !activities.includes(e.target.value)){
-            setActivities([...activities, e.target.value])
+        let activity = e.target.value;
+        if (activity === 'Filter by activity') {
+            console.log(arrayActivities)
+            dispatch(fetchCountries());
+        } else {
+            // setActivities([...activities, activity]);
+            dispatch(filterByActivities(activity));
+            // dispatch(filterByContinent(continent));
         }
+
+        
+        // if(activity !== 'Filter by activity' && !activities.includes(activity)){
+        //     setActivities([...activities, activity]);
+        // } else {
+        //     dispatch(filterByContinent(activity));
+        // }
     }
 
 
@@ -81,23 +95,21 @@ export const FilteredBar = ( ) => {
                     <option>North America</option>
                     <option>South America</option>
                 </select>
-                {/* <input className='input_activity' placeholder='Search by continent'/> */}
+
                 <button className='button_continent'></button>
             </div>
             <div className='filtered_input_activity'>
             <select
                     className='input_continent'
-                    onChange={e => handleActivities(e)}
+                    onChange={(e) => handleActivities(e)}
                 >
                     <option>Filter by activity</option>
                     {
-                    //  arrayActivities && arrayActivities.map( a => {
-                    //         console.log(a)
-                    //         return(
-                                
-                    //             <option key={a.id} value={a.name} > {a.name} </option> 
-                    //         )
-                    //     })
+                     arrayActivities && arrayActivities.map( a => {
+                            return( 
+                                <option key={a.id} value={a.name} > {a.name} </option> 
+                            )
+                        })
                     }
                 </select>
 
