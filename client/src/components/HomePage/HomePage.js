@@ -19,7 +19,7 @@ export const HomePage = ( ) => {
   }
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage ] = useState(8);
+  const [itemsPerPage ] = useState(10);
 
 
   //  useEffect(() => {

@@ -3,7 +3,6 @@ import Country from '../Country/Country';
 import './countries.css';
 
 export const Countries = ( { countries } ) => {
-
   return (
     <div>
       <div className='countries_container'>

@@ -3,8 +3,8 @@ import './Pagination.css';
 
 export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPage }) => {
 
-    const [pageNumberLimit] = useState(5);
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+    const [pageNumberLimit] = useState(10);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(10);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
     const pages = []

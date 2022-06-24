@@ -3,7 +3,7 @@
     left: 0;
     bottom: 50%;
     z-index: 10000;
-    width: 25px;
+    width: 30px;
     height: 100px;
     background-color: rgba(74, 74, 74, 0.6);
     border-radius: 0 8px 8px 0;
@@ -12,6 +12,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
+    transition: 0.6s ease all;
+}
+
+.social_container:hover {
+    padding-left: 50px;
+    
 }
 
 .img_ln {
@@ -20,6 +27,15 @@
     background-image: url(../../img/LinkedIn.png);
     background-size: cover;
     background-position: center;
+    cursor: pointer;
+    border-radius: 5px;
+
+    transition: 0.6s ease all;
+}
+
+.img_ln:hover {
+    background-color: #FFD600;
+    
 }
 
 .img_bh {
@@ -28,6 +44,15 @@
     background-image: url(../../img/Behance.png);
     background-size: cover;
     background-position: center;
+    cursor: pointer;
+    border-radius: 5px;
+
+    transition: 0.6s ease all;
+}
+
+.img_bh:hover {
+    background-color: #FFD600;
+    
 }
 
 .img_git {
@@ -36,4 +61,13 @@
     background-image: url(../../img/GitHub.png);
     background-size: cover;
     background-position: center;
+    cursor: pointer;
+    border-radius: 5px;
+
+    transition: 0.6s ease all;
+}
+
+.img_git:hover {
+    background-color: #FFD600;
+    
 }
