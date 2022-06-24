@@ -8,14 +8,9 @@
   padding-bottom: 50px;
 }
 
-.home_page::-webkit-scrollbar {
-  width: 8px;     /* Tamaño del scroll en vertical */
-  height: 8px;    /* Tamaño del scroll en horizontal */
-  display: none;  /* Ocultar scroll */
-}
-
 body::-webkit-scrollbar {
   width: 7px;     /* Tamaño del scroll en vertical */
+  height: 7px; 
   background: #4a4a4a;
 }
 

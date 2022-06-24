@@ -50,15 +50,22 @@ export default function reducer(state= initialState, action) {
                 arrayActivities: action.payload
             }
         case FILTER_BY_ACTIVITIES:
-            console.log(action.payload)
-            console.log(state.filteredCountries)
             if(action.payload.length !== 0) {
                 const selectedActivities = action.payload
-                const filteredActivities = state.countries.filter((country) => {
-                    return 'Hola'
-                    // return selectedActivities.every(i => country.activity.map(a => a.name).includes(i))
+                const filteredActivities = state.filteredCountries.filter((country) => {
+                    if (country.activities.length === 1) {
+                        return country.activities[0].name === selectedActivities;
+                    }
+
+                    if (country.activities.length > 1) {
+                        return country.activities.map(a => a.name === selectedActivities);
+                    }
+                    // if (country.activities[0].name) {
+                    //     return country.activities[0].name === selectedActivities
+                    // }
+                    // return state.filteredCountries.every(i => country.activities.map(a => a.name).includes(i))
                 })
-                console.log(state.countries)
+                console.log(filteredActivities)
                 return {
                     ...state,
                     countries: filteredActivities

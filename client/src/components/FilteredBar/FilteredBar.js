@@ -8,7 +8,7 @@ export const FilteredBar = ( ) => {
     const dispatch = useDispatch();
     const countries = useSelector( state => state.filteredCountries);
     const arrayActivities = useSelector( state => state.arrayActivities);
-    console.log(arrayActivities)
+
 
     const [activities, setActivities] = useState([]);
 

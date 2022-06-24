@@ -50,7 +50,12 @@ router.get( '/', async (req, res, next) => {
             }
             return res.json(`Error: '${name}' not founded, please enter a correct data`);
         } else {
-            return await Country.findAll()
+            return await Country.findAll({
+                        include: {
+                            model: Activity,
+                            attributes:['name', 'difficulty', 'duration', 'season']
+                        } 
+                    })
                     .then( (countries) => {
                         return res.send(countries);
                     }) 
