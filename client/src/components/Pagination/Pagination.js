@@ -3,13 +3,13 @@ import './Pagination.css';
 
 export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPage }) => {
 
-    const [pageNumberLimit] = useState(10);
-    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(10);
+    const [pageNumberLimit] = useState(5);
+    const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
     const pages = []
-    for (let i = 1; i < Math.ceil(countries.length / itemsPerPage); i++) {
-        pages.push(i)
+    for (let i = 0; i < Math.ceil(countries.length / itemsPerPage); i++) {
+        pages.push(i+1)
     }
 
     const handleClick = (e) => {
@@ -71,9 +71,11 @@ export const Pagination = ({ countries, itemsPerPage, setCurrentPage, currentPag
                     Back
                 </button>
             </li>
+
             {pageDecrementBtn}
             {renderPageNumbers}
             {pageIncrementBtn}
+            
             <li className='arrowBtn'>
                 <button
                 className='btnBack'

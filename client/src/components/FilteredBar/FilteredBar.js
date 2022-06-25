@@ -15,6 +15,7 @@ export const FilteredBar = ( ) => {
     useEffect(() => {
         dispatch(getActivities())
         dispatch(filterByActivities(activities))
+        dispatch(fetchCountries())
     }, [dispatch, activities])
 
 
@@ -50,7 +51,6 @@ export const FilteredBar = ( ) => {
     function handleActivities(e) {
         let activity = e.target.value;
         if (activity === 'Filter by activity') {
-            console.log(arrayActivities)
             dispatch(fetchCountries());
         } else {
             // setActivities([...activities, activity]);

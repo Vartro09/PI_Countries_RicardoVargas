@@ -9,7 +9,7 @@ import './AddActivity.css';
 export const AddActivity = () => {
   const dispatch = useDispatch();
 
-  const arrayCountries = useSelector(state => state.filteredCountries);
+  const arrayCountries = useSelector(state => state.countries);
 
   const navigate = useNavigate();
 

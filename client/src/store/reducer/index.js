@@ -52,16 +52,20 @@ export default function reducer(state= initialState, action) {
             }
         case FILTER_BY_ACTIVITIES:
             if(action.payload.length !== 0) {
-                console.log(state.countries.length)
                 const selectedActivities = action.payload
-                const filteredActivities = state.filteredCountries.filter((country) => {
-                    if (country.activities.length === 1) {
-                        return country.activities[0].name === selectedActivities;
-                    }
+                let initialCountries = [...state.countries]
+                const   filteredActivities = initialCountries.filter((country) => {
+                    
+                    // if (country.activities.length === 1) {
+                    //     return country.activities[0].name === selectedActivities;
+                    // }
 
-                    if (country.activities.length > 1) {
-                        return country.activities.map(a => a.name === selectedActivities);
-                    }
+                    const listActivities = country.activities.map( a => a.name)
+                    return listActivities.includes(selectedActivities)
+                    // if (country.activities.length >= 1) {
+                    //     return country.activities.map(a => a.name === selectedActivities);
+                       
+                    // }
                     // if (country.activities[0].name) {
                     //     return country.activities[0].name === selectedActivities
                     // }
@@ -70,12 +74,12 @@ export default function reducer(state= initialState, action) {
                 console.log(filteredActivities)
                 return {
                     ...state,
-                    countries: filteredActivities
+                    filteredCountries: filteredActivities
                 }
             } else {
                 return {
                     ...state,
-                    countries: state.backUpCountries
+                    filteredCountries: state.countries
                 }
             }
         case ORDER_A_Z :
