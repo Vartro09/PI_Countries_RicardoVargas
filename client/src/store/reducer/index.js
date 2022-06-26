@@ -25,7 +25,7 @@ const initialState = {
 export default function reducer(state= initialState, action) {
     switch (action.type) {
         case FETCH_COUNTRIES:
-            console.log(state.filteredCountries)
+            // console.log(state.filteredCountries)
             return {
                 ...state,
                 countries: action.payload,
@@ -54,7 +54,7 @@ export default function reducer(state= initialState, action) {
             if(action.payload.length !== 0) {
                 const selectedActivities = action.payload
                 let initialCountries = [...state.countries]
-                const   filteredActivities = initialCountries.filter((country) => {
+                const   filteredActivities = initialCountries.filter((country) => {  
                     
                     // if (country.activities.length === 1) {
                     //     return country.activities[0].name === selectedActivities;
@@ -71,7 +71,7 @@ export default function reducer(state= initialState, action) {
                     // }
                     // return state.filteredCountries.every(i => country.activities.map(a => a.name).includes(i))
                 })
-                console.log(filteredActivities)
+                // console.log(filteredActivities)
                 return {
                     ...state,
                     filteredCountries: filteredActivities

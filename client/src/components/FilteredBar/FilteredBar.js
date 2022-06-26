@@ -68,20 +68,34 @@ export const FilteredBar = ( ) => {
 
 
   return (
-    <div className='filteredBar_container'>
+    <div className='filteredBar_container animate__animated animate__fadeInDown'>
         <div className='order_container'>
             <h4 className='txtOrder'>Order |</h4>
 
-            <h3 className='typeOrder'>Alphabetic:</h3>
-            <button className='button_sort' onClick={handleAz}></button>
-            <button className='button_sort2' onClick={handleZa}></button>
+            <div className='divContainerFilterBar'>
+                <h3 className='typeOrder'>Alphabetic:</h3>
+                <div className='divContainerFilterBarButtons'>
+                    <button className='button_sort' onClick={handleAz}></button>
+                    <button className='button_sort2' onClick={handleZa}></button>
+                </div>
+                    
+            </div>
             
-            <h3 className='typeOrder'>Population:</h3>
-            <button className='button_down' onClick={handlePopulationDown}></button>
-            <button className='button_up' onClick={handlePopulationUp}></button>
+            <div className='divContainerFilterBar'>
+                <h3 className='typeOrder'>Population:</h3>
+                <div className='divContainerFilterBarButtons'>
+                    <button className='button_down' onClick={handlePopulationDown}></button>
+                    <button className='button_up' onClick={handlePopulationUp}></button>
+                </div>
 
+            </div>
+
+            <div className='divContainerFilterBar'>
             <h3 className='typeOrder'>Reset:</h3>
-            <button className='button_reset' onClick={reset}></button>
+            <div className='divContainerFilterBarButtons'>
+                <button className='button_reset' onClick={reset}></button>
+            </div>
+            </div>
         </div>
 
         <div className='filtered_inputs_container'>

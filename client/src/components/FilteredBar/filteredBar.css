@@ -1,11 +1,14 @@
 .filteredBar_container {
-    width: 1100px;
-    height: 60px;
+    width: 80%;
+    padding-top: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
+    align-items: center;
+
+
 }
 
 .txtOrder {
@@ -15,13 +18,15 @@
 
 .order_container {
     width: 400px;
-    height: 60px;
+    padding: 2px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
     color: #4A4A4A;
+
+
 }
 
 .typeOrder {
@@ -31,13 +36,15 @@
 
 
 .filtered_inputs_container {
-    width: 450px;
-    height: 60px;
+    width: 400px;
+    padding: 2px 0;
+    
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+
 }
 
 
@@ -180,7 +187,85 @@
     background-color: #fde56e;
 }
 
+.divContainerFilterBar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
 
+.divContainerFilterBarButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+
+
+@media (min-width: 768px) and (max-width:1080px){
+   
+   
+    .filteredBar_container {
+        height: 80px;
+        padding: 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: space-around;
+    
+
+    }
+   
+
+}
+
+
+@media (min-width: 280px) and (max-width:767px){
+   
+   
+    .filteredBar_container {
+        width: 100%;
+        height: 250px;
+        padding-top: 0;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-content: center;
+
+    }
+
+    .order_container {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #4A4A4A;
+    
+    }
+
+    .filtered_inputs_container {
+        width: 100%;
+        height: 50px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+
+    }
+   
+
+}
 
 
 

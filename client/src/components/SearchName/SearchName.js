@@ -11,7 +11,7 @@ export const SearchName = () => {
     const dispatch = useDispatch();
     const filteredCountries = useSelector( state => state.searchCountriesByName );
     const { name } = useParams(); 
-    const txt = '<< return';
+    const txt = 'Back';
     
     useEffect( () => {
         dispatch( searchCountries(name) );
@@ -27,7 +27,7 @@ export const SearchName = () => {
                 <h1 className='text_results'>  <span className='num_results'>{ filteredCountries.length }</span>  RESULTS FOR: '{ name }' </h1>
             }
         </div>
-        <div className='countries_container'>
+        <div >
             <Countries countries={filteredCountries} />
         </div>
     </div>

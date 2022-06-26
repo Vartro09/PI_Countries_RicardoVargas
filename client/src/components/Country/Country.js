@@ -11,10 +11,11 @@ const Country = ( { name, img, continent, id, population } ) => {
           <h2 className='country_title' >  {name.toUpperCase()} </h2>
           <h3 className='country_tag_country'>Continent:</h3>
           <h3 className='country_continent_title'> {continent} </h3>
-          <p> {population} </p>
+          <h3 className='country_tag_country'>Population:</h3>
+          <p className='country_continent_title'> {population} </p>
         </div>
         <NavLink to={`/country/${id}`}>
-          <button className='btn_country' >DESCRIPTION</button>
+          <button className='btn_country animate__animated animate__fadeInUp' >DESCRIPTION</button>
         </NavLink>
 
     </div>

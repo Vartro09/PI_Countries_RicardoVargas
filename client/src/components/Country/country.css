@@ -3,7 +3,7 @@
     height: 300px;
     box-shadow: 1px 5px 12px -8px rgba(0,0,0,0.79);
     border-radius: 20px;
-    margin-bottom: 50px;
+    margin: 30px;
     background-color: #fff;
 
     display: flex;
@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
+    user-select: none;
 }
 
 .country_title {

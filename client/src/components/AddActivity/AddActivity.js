@@ -19,7 +19,7 @@ export const AddActivity = () => {
         img: country.img
     })
   });
-
+  
 
   const [selected, setSelected] = useState("");
   const [errors, setErrors] = useState({firstTry: true});
@@ -46,7 +46,7 @@ export const AddActivity = () => {
   }
 
   const handleSeasons = (e) => {
-    if(e.target.value !== 'Seleccionar' && !activity.season.includes(e.target.value)){
+    if(e.target.value !== 'Select' && !activity.season.includes(e.target.value)){
       setActivity({
           ...activity,
           season: e.target.value
@@ -61,7 +61,7 @@ export const AddActivity = () => {
   }
 
   const handleCountries = (e) => {
-    if(e.target.value !== 'Seleccionar' && !activity.countries.includes(e.target.value)){
+    if(e.target.value !== 'Select' && !activity.countries.includes(e.target.value)){
         setActivity({
             ...activity,
             countries: [...activity.countries, e.target.value]
@@ -102,7 +102,7 @@ export const AddActivity = () => {
     e.preventDefault();
         if(activity.name && activity.difficulty && activity.duration && activity.season && activity.countries.length >= 1){
         dispatch(postActivity(activity));
-        alert('Actividad creada exitosamente');
+        alert('The activity has been created successfully');
         setActivity({
                 name: '',
                 difficulty: '',
@@ -114,7 +114,7 @@ export const AddActivity = () => {
         navigate('/home')
         }
         if(errors.firstTry){
-            alert('Completar los campos correspondientes')
+            alert('Complete the required fields')
         }
   }
 
@@ -125,52 +125,65 @@ export const AddActivity = () => {
           <div  className='formContent'>
             <form className='form' onSubmit={e => handleSubmit(e)}>
               <div className='divForm'>
-                <label className='txtLabel'>Activity Name</label>
-                <input
-                  type='text'
-                  name='name'
-                  value={activity.name}
-                  onChange={e => handleChange(e)}
-                />
+                <div className='divLabel'>
+                  <label className='txtLabel'>Activity Name</label>
+                  <input
+                    type='text'
+                    name='name'
+                    value={activity.name}
+                    onChange={e => handleChange(e)}
+                  />
+                </div>
+                {errors.name && (<p className='errorMessage'>{errors.name}</p>)}
               </div>
 
               <div className='divForm'>
-                <label className='txtLabel'>Difficulty 1 to 5</label>
-                <input
-                  type='text'
-                  name='difficulty'
-                  value={activity.difficulty}
-                  onChange={e => handleChange(e)}
-                />
+                <div className='divLabel'>
+                  <label className='txtLabel'>Difficulty 1 to 5</label>
+                  <input
+                    type='text'
+                    name='difficulty'
+                    value={activity.difficulty}
+                    onChange={e => handleChange(e)}
+                  />
+                </div>
+                {errors.difficulty && (<p className='errorMessage'>{errors.difficulty}</p>)}
               </div>
 
               <div className='divForm'>
-                <label className='txtLabel'>Duration Format: 24hs</label>
-                <input
-                  type='text'
-                  name='duration'
-                  value={activity.duration}
-                  onChange={e => handleChange(e)}
-                />
+                <div className='divLabel'>
+                  <label className='txtLabel'>Duration Format: 24hs</label>
+                  <input
+                    type='text'
+                    name='duration'
+                    value={activity.duration}
+                    onChange={e => handleChange(e)}
+                  />
+                </div>
+                {errors.duration && (<p className='errorMessage'>{errors.duration}</p>)}
               </div>
 
               <div className='divForm'>
-                <h3 className='txtLabel'>Season</h3>
-                <select onChange={e => handleSeasons(e)}>
-                  <option>Select</option>
-                  <option value='Spring'>Spring</option>
-                  <option value='Summer'>Summer</option>
-                  <option value='Fall'>Fall</option>
-                  <option value='Winter'>Winter</option>
-                </select>
+                <div className='divLabel'>
+                  <h3 className='txtLabel'>Season</h3>
+                  <select onChange={e => handleSeasons(e)}>
+                    <option>Select</option>
+                    <option value='Spring'>Spring</option>
+                    <option value='Summer'>Summer</option>
+                    <option value='Fall'>Fall</option>
+                    <option value='Winter'>Winter</option>
+                  </select>
+                </div>
+                {errors.season && (<p className='errorMessage'>{errors.season}</p>)}
+                
               </div>
-
 
               <div>
                   <div className='divForm'>
+                    <div className='divLabel'>
                       <h3 className='txtLabel'>Countries</h3>
                       <select value={selected} onChange={e => [handleCountries(e), setSelected(e)]}>
-                          <option>Select Country</option>
+                          <option>Select</option>
                           {countriesList?.map(country => {
                               return(
                                   <option key={country.name}>
@@ -179,19 +192,29 @@ export const AddActivity = () => {
                               )
                           })}
                       </select> 
+                      
+                    </div>
+                    {errors.countries && (<p className='errorMessage'>{errors.countries}</p>)}
                   </div>
-                      {/* {errors.countries && (<p>{errors.countries}</p>)} */}
                   <div className="displayCountries">
                       {activity.countries.map((country) => {
                           return(
-                              <div className="eachCountry" key={country}>
+                              <div className="countryDiv" key={country}>
                                   <p className="countryName">{country}</p>
                                   <button className="closeButton" onClick={e => {deleteCountry(e)}} value={country}>X</button>
                               </div>
                           )
                       })}
                   </div>
-                  <button onClick={e => handleCheckErrors(e)}>Add Activity</button>
+                  <div>
+                  { errors.name || 
+                    errors.activity || 
+                    errors.duration || 
+                    errors.season || 
+                    errors.countries ?
+                    <button  disabled className='btnAddActivity' >Add Activity</button>
+                    :<button className='btnAddActivity' onClick={e => handleCheckErrors(e)}>Add Activity</button>}
+                    </div>
               </div>
 
             </form>

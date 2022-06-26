@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Countries } from '../Countries/Countries';
 import { FilteredBar } from '../FilteredBar/FilteredBar';
 import { Pagination } from '../Pagination/Pagination';
 import { SocialBar } from '../SocialBar/SocialBar';
+import { Spinner } from '../Spinner/Spinner';
 import './HomePage.css';
 
 
@@ -17,8 +18,23 @@ export const HomePage = ( ) => {
     console.log(ordenado)
   }
 
-  let cantidad = countries.length
-  console.log(cantidad)
+
+  let [spinner, setSpinner] = useState(false);
+
+  const switchSpinner = () => {
+    setTimeout(() => {
+      setSpinner(spinner = true)
+    }, 1000)
+  }
+
+  switchSpinner();
+
+  // useEffect(() => {
+  //   setSpinner(switchSpinner())
+  // }, [])
+
+
+
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage ] = useState(10);
@@ -32,14 +48,16 @@ export const HomePage = ( ) => {
    return (
 
     <div className="home_page">
-      <div>
+        
+      <div className='animate animate__fadeInLeft'>
         <SocialBar />
       </div>
+
       <div>
         <FilteredBar  />
       </div>
       <div>
-        <Countries countries={currentItems} />
+        { spinner ?  <Countries countries={currentItems} /> : <Spinner /> }
       </div>
       <div>
         <Pagination countries={countries} itemsPerPage={itemsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />

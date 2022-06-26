@@ -8,7 +8,7 @@
     padding-top: 30px;
   }
 
-.countries_container {
+/* .countries_container {
     width: 1100px;
     margin: 0 auto;
     display: flex;
@@ -17,7 +17,7 @@
     justify-content: space-between;
     padding: 20px 30px 4px 30px;
     border-radius: 10px;
-}
+} */
 
 .info_container {
     width: 1100px;

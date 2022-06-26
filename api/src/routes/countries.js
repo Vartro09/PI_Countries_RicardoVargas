@@ -48,7 +48,7 @@ router.get( '/', async (req, res, next) => {
             if (matchName.length !== 0) {
                 return res.json(matchName);
             }
-            return res.json(`Error: '${name}' not founded, please enter a correct data`);
+            // return res.json(`Error: '${name}' not founded, please enter a correct data`);
         } else {
             return await Country.findAll({
                         include: {

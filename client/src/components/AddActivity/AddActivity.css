@@ -9,7 +9,7 @@
 
 .activity_page_content {
     width: 800px;
-    height: 500px;
+    height: 600px;
     margin: auto;
     padding-top: 50px;
     text-align: center;
@@ -24,13 +24,16 @@
     font-size: 40px;
     font-weight: bold;
     color: #4A4A4A;
+
+    user-select: none;
 }
 
 .formContent { 
     width: 500px;
-    height: 400px;
+    height: 500px;
     background-color: #4A4A4A;
     border-radius: 20px;
+    padding-bottom: 20px;
 
     display: flex;
     justify-content: center;
@@ -47,6 +50,16 @@
     height: 60px;
 
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divLabel {
+    width: 100%;
+    height: 60px;
+
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -55,4 +68,63 @@
 
 .txtLabel {
     color: #FFF;
+}
+
+.displayCountries {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.countryDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.countryName {
+    color: #FFF;
+}
+
+.closeButton {
+    padding: 4px 6px;
+    background-color: red;
+    color: #FFF;
+    border: none;
+    margin-left: 5px;
+    border-radius: 3px;
+
+    cursor: pointer;
+    transition: 0.5s ease all;
+}
+
+.closeButton:hover {
+    background-color: #FFD600;
+    color: #4A4A4A;
+}
+
+.btnAddActivity {
+    background-color: #FFF;
+    border: 2px  solid #FFF;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+
+    transition: 0.8s ease all;
+}
+
+.btnAddActivity:hover {
+    background-color: #FFD600;
+    border: 2px  solid #FFD600;
+ 
+}
+
+.errorMessage {
+    color: red;
 }
