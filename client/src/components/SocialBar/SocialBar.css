@@ -19,7 +19,7 @@
 .social_container:hover {
     padding-left: 50px;
     background-color: rgba(74, 74, 74, 1);
-    
+    background: linear-gradient(90deg, rgba(255,214,0,1) 0%, rgba(105,105,105,1) 47%, rgba(72,72,72,1) 100%);
 }
 
 .img_ln {

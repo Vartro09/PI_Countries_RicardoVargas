@@ -132,6 +132,7 @@ export const AddActivity = () => {
                     name='name'
                     value={activity.name}
                     onChange={e => handleChange(e)}
+                    autoComplete='off'
                   />
                 </div>
                 {errors.name && (<p className='errorMessage'>{errors.name}</p>)}
@@ -145,6 +146,7 @@ export const AddActivity = () => {
                     name='difficulty'
                     value={activity.difficulty}
                     onChange={e => handleChange(e)}
+                    autoComplete='off'
                   />
                 </div>
                 {errors.difficulty && (<p className='errorMessage'>{errors.difficulty}</p>)}
@@ -158,6 +160,7 @@ export const AddActivity = () => {
                     name='duration'
                     value={activity.duration}
                     onChange={e => handleChange(e)}
+                    autoComplete='off'
                   />
                 </div>
                 {errors.duration && (<p className='errorMessage'>{errors.duration}</p>)}
