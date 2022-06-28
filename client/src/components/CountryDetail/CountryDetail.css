@@ -9,7 +9,8 @@
 
 .centerContainer {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +21,6 @@
     font-size: 40px;
     font-weight: bold;
     color: #4A4A4A;
-
     user-select: none;
 }
 
