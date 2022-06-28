@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Countries } from '../Countries/Countries';
 import { FilteredBar } from '../FilteredBar/FilteredBar';
@@ -28,12 +28,6 @@ export const HomePage = ( ) => {
   }
 
   switchSpinner();
-
-  // useEffect(() => {
-  //   setSpinner(switchSpinner())
-  // }, [])
-
-
 
 
   const [currentPage, setCurrentPage] = useState(1);

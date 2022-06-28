@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchCountries, postActivity } from '../../store/actions';
+import { postActivity } from '../../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import validate from './validators';
 import { useNavigate } from 'react-router-dom';

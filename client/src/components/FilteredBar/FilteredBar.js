@@ -53,17 +53,10 @@ export const FilteredBar = ( ) => {
         if (activity === 'Filter by activity') {
             dispatch(fetchCountries());
         } else {
-            // setActivities([...activities, activity]);
             dispatch(filterByActivities(activity));
-            // dispatch(filterByContinent(continent));
         }
 
-        
-        // if(activity !== 'Filter by activity' && !activities.includes(activity)){
-        //     setActivities([...activities, activity]);
-        // } else {
-        //     dispatch(filterByContinent(activity));
-        // }
+
     }
 
 
@@ -119,11 +112,11 @@ export const FilteredBar = ( ) => {
                 >
                     <option>Filter by activity</option>
                     {
-                     arrayActivities && arrayActivities.map( a => {
+                     Array.isArray(arrayActivities) ? arrayActivities.map( a => {
                             return( 
                                 <option key={a.id} value={a.name} > {a.name} </option> 
                             )
-                        })
+                        }) : null
                     }
                 </select>
 

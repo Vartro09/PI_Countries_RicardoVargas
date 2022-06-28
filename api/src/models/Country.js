@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
     area: {
       type: DataTypes.DECIMAL,
       get(){
-        return this.getDataValue("area") + " Km";
+        return this.getDataValue("area") + " Km2";
       } 
     },
     population: {

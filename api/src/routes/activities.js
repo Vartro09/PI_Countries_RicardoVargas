@@ -20,11 +20,11 @@ router.post( '/', async (req, res, next) => {
                     where: { name: t}
                     });
                 
-                return newActivity.setCountries(country); //la asociacion la realiza como objeto
+                return newActivity.setCountries(country); 
                 });  
 
             await Promise.all(promisesCountries); 
-        } // end-if
+        } 
 
         let resultActivity = await Activity.findAll({
             where:{ 
@@ -34,22 +34,6 @@ router.post( '/', async (req, res, next) => {
             });
 
         return res.status(201).json(resultActivity[0]);
-
-        // let selectCountries = await Country.findAll({
-        //     where: {
-        //         name: countries
-        //     }
-        // });
-
-        // let result = newActivity.addCountry(selectCountries);
-
-        // return res.status(201).send(result);
-
-        // countries.forEach( async (c) => {
-        //     const countryAdded = await Country.findByPk(c.id);
-        //     const actWithCountry = newActivity.addCountry(countryAdded);
-        // });
-        // return res.status(201).send(newActivity);
     } catch (error) {
         return next(error);
     }
