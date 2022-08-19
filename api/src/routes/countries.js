@@ -17,11 +17,13 @@ const dataCarghed = (async () => {
             capital: typeof c.capital !== 'undefined' ? c.capital[0] : 'N/A',
             subregion: c.subregion,
             area: c.area,
-            population: c.population
+            population: c.population,
+            borders: typeof c.borders !== 'undefined' ? c.borders[0] : 'N/A',
          };
          return data;   
         }
         );
+    console.log(array)
     array.forEach(async (c) => await Country.create(c));
 })();
 

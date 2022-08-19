@@ -9,6 +9,8 @@ import { CountryDetail } from './components/CountryDetail/CountryDetail';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCountries } from './store/actions';
+import { RenderActivities } from './components/RenderActivities';
+
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
         <Route exact path='/home' element={<HomePage />} />
         <Route exact path='/country/:id' element={<CountryDetail />} />
         <Route exact path='/search/:name' element={<SearchName />} />
+        <Route exact path='/activities' element={<RenderActivities />} />
         <Route exact path='/create' element={<AddActivity />} /> 
       </Routes>
     </div>

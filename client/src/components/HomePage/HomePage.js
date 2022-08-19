@@ -12,11 +12,6 @@ export const HomePage = ( ) => {
 
   // const countries = useSelector(state => state.countries);
   const countries = useSelector(state => state.filteredCountries);
-  const ordenado = useSelector(state => state.ordenado);
-
-  if (ordenado) {
-    console.log(ordenado)
-  }
 
 
   let [spinner, setSpinner] = useState(false);

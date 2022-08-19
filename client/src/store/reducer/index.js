@@ -8,7 +8,6 @@ import {
     FILTER_BY_CONTINENT, 
     POST_ACTIVITY, 
     FETCH_ACTIVITIES, 
-    // SEARCH_ACTIVITIES,
     FILTER_BY_ACTIVITIES } from "../actions"
 
 const initialState = {
@@ -55,21 +54,10 @@ export default function reducer(state= initialState, action) {
                 const selectedActivities = action.payload
                 let initialCountries = [...state.countries]
                 const   filteredActivities = initialCountries.filter((country) => {  
-                    
-                    // if (country.activities.length === 1) {
-                    //     return country.activities[0].name === selectedActivities;
-                    // }
 
                     const listActivities = country.activities.map( a => a.name)
                     return listActivities.includes(selectedActivities)
-                    // if (country.activities.length >= 1) {
-                    //     return country.activities.map(a => a.name === selectedActivities);
-                       
-                    // }
-                    // if (country.activities[0].name) {
-                    //     return country.activities[0].name === selectedActivities
-                    // }
-                    // return state.filteredCountries.every(i => country.activities.map(a => a.name).includes(i))
+
                 })
                 // console.log(filteredActivities)
                 return {

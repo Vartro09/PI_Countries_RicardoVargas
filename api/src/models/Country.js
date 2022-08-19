@@ -38,6 +38,10 @@ module.exports = (sequelize) => {
     population: {
       type: DataTypes.INTEGER,
     },
+    borders: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   }, {
     timestamps: false
   });

@@ -13,9 +13,9 @@ export const FilteredBar = ( ) => {
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        dispatch(getActivities())
-        dispatch(filterByActivities(activities))
-        dispatch(fetchCountries())
+        dispatch(getActivities());
+        dispatch(filterByActivities(activities));
+        dispatch(fetchCountries());
     }, [dispatch, activities])
 
 
